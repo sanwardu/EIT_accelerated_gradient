@@ -42,7 +42,7 @@ for m = 1:nt
     end
 end
 
-[B,C,D] = fem_matrices_new(p,elecInd,body); % other two global stiffness components
+[B,C,D] = fem_matrices(p,elecInd,body); % other two global stiffness components
 
 Ac = K1 + B; % global stiffness component
  
