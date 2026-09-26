@@ -65,7 +65,7 @@ load('ex1_firgn_0_1n_new.mat');
 %% Computing the jacobian
 
 [~,u,Kn] = fwd_solver_eit2D(p,e,t,sig_g',body);
-J = cem_jac_vauk(p,t,u,inv(Kn),body);
+J = cem_jac(p,t,u,inv(Kn),body);
 J1 = J;
 
 %% Reconstruction
