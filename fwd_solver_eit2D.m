@@ -19,7 +19,7 @@ nt = size(t,2);
 NumSrc = body.NumSrc; % number of electrodes
 Ic = body.current;
 npat = size(Ic,2);
-elecInd = elec_ind(body,p,e); % Find the electrode indices for the mesh p,t
+elecInd = body.elec;
 
 %% Global Stiffness Matrix Assembly 
 % refer: Ph.D. thesis, "ITERATIVE IMAGE RECONSTRUCTION FOR ELECTRICAL IMPEDANCE TOMOGRAPHY USING ADAPTIVE TECHNIQUES"
