@@ -35,7 +35,7 @@ while it < it_st
     [V2,~,~] = fwd_solver_eit2D(p,e,t,sig2,body);
     new_obj_err = norm(V2-Vmeas,2)^2;
     % update jacobian
-    Jn = cal_jacobian(sig2,dsig,p,e,t,body); % regular jacobian update at sig2
+    Jn = calc_jacobian(sig2,dsig,p,e,t,body); % regular jacobian update at sig2
     % Jn = update(Jc,pk,s,body); % accelerated jacobian updatr at sig2 
       fv2 = - Jn'*(V2-Vmeas); % gradient J at sig2
     
