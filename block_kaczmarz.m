@@ -33,7 +33,7 @@ sig_prior = sig_guess'; % model prior, assume equal weight for all parameters (h
 iter = 1;
 l2err_sig(iter) = norm(sig_all(:,iter)-sigTrue',2)/norm(sigTrue,2); % Reconstruction error
 
-[Vpred,~,~] = fwd_solver_eit2D_new(p,e,t,sig_all(:,iter),body); % simulated data
+[Vpred,~,~] = fwd_solver_eit2D(p,e,t,sig_all(:,iter),body); % simulated data
 
 obj(iter) = norm(Vpred-Vmeas,2)^2; % Residual error
 
@@ -41,8 +41,6 @@ nmeas = size(Vpred,1);
 W1 = speye(nmeas,nmeas); % Weight matrix
 
 lambda1 = lambda; c = 4;
-
-[iter,obj(iter),lambda]
 st = [];
 stmin = 10^-4;
 % %%  Computing search direction and step length
@@ -57,7 +55,7 @@ end
 
 while iter < numbit
 
-    [step, J, Vpred] = alpha_new(Vmeas,Vpred,J,pk,sig_all(:,iter),sig_prior,lambda,p,e,t,obj(iter),step,body);
+    [step, J, Vpred] = alpha(Vmeas,Vpred,J,pk,sig_all(:,iter),sig_prior,lambda,p,e,t,obj(iter),step,body);
     st = [st; step];
     if (iter+1) > numbit
         fprintf('Maximum iteration exceeded');
@@ -78,8 +76,6 @@ while iter < numbit
     pk = (J*J' + lambda.*W1)\r;
     pk = J'*pk;
     Jp = J*pk;
-
-    [iter,obj(iter),step,lambda]    
 % Checking for stopping criterion     
     if obj(iter) < Tol
         fprintf('Discrepancy principle');
