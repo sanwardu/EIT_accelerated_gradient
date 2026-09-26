@@ -3,7 +3,7 @@ function [sig_all,l2err_sig,st,obj,iter] = IRGN(Vmeas,sig_guess,sigTrue,J,lambda
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% Mar. 2020, Sanwar Ahmad, suahmad@colostate.edu, CSU
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% INPUTS
+% INPUTS 
 % Vmeas - experimental or simulated data on voltages
 % sig_guess - initial model for the electrical conductivity structure
 % sigTrue - true E.C. model 
